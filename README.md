@@ -95,7 +95,7 @@ FROM (
 WHERE rn = 1;
 ```
 
-This reduced the dataset from 3,731 rows (post pricing-cleanup) to **1,675 rows**, and category count from 14 down to **9** genuinely distinct categories. All business queries below were re-run on `zepto_clean` to ensure accurate, non-inflated figures.
+This reduced the dataset from 3,731 rows (post pricing-cleanup) to 1,675 rows — removing 2,056 duplicate entries across 1,187 affected products — and category count from 14 down to 9 genuinely distinct categories.
 
 ---
 
@@ -223,7 +223,7 @@ ORDER BY total_inventory DESC;
 > — daily essentials, not impulse buys
 > — were found out of stock at premium price points, a likely source of lost revenue.
 
-> 🔍 **Caught and fixed a data quality issue.** Initial revenue queries showed identical totals across seemingly unrelated categories (e.g., Packaged Food, Ice Cream & Desserts, and Chocolates & Candies). Investigation revealed 1,187 products were duplicated across multiple category tags in the source data. After deduplication, the dataset shrank from 3,731 to 1,675 rows, and all revenue figures were recalculated for accuracy.
+> 🔍 **Caught and fixed a data quality issue.** Initial revenue queries showed identical totals across seemingly unrelated categories (e.g., Packaged Food, Ice Cream & Desserts, and Chocolates & Candies). Investigation revealed 1,187 products were duplicated across multiple category tags in the source data, accounting for 2,056 excess rows. After deduplication, the dataset shrank from 3,731 to 1,675 rows...
 
 ---
 
